@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivePlanes: []
-  SurfacePlanePrefab: {fileID: 1000010593991404, guid: c4a10a3db4e632a449a26b87a39f161c,
+  SurfacePlanePrefab: {fileID: 1000010593991404, guid: e2f0116ed6ef0d44bb7791f327bea328,
     type: 2}
   MinArea: 0.025
   drawPlanesMask: 15

@@ -3,7 +3,11 @@ guid: fe6565c81d2479e4e96a4cd8456135a9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MoveButton: {fileID: 1031093236997336, guid: eb7f76c2c9cceac44a4c2097ef5e1049,
+      type: 2}
+  - mouseOverGlowEffect: {fileID: 2100000, guid: d0bb0acdf9b8c1846ab296d9cab01f75,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

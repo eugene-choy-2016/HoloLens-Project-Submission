@@ -48,7 +48,7 @@ public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler {
 
         //Spawn a Scale Button and set it to fale
         centerPosition.y += 1.0f;
-        instantiatedScaleButton = Instantiate(ScaleButton, centerPosition, Quaternion.identity);
+        instantiatedScaleButton = Instantiate(MoveButton, centerPosition, Quaternion.identity);
         instantiatedScaleButton.SetActive(false);
 
         childRenderer = GetComponentsInChildren<MeshRenderer>();
