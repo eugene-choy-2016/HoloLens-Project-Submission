@@ -12,6 +12,10 @@ namespace HoloToolkit.Unity
     [RequireComponent(typeof(BoxCollider), typeof(Interpolator))]
     public class SimpleTagalong : MonoBehaviour
     {
+
+        //Allow the Tagalong to stop when needed
+        public static bool isTagAlong = true;
+
         // Simple Tagalongs seek to stay at a fixed distance from the Camera.
         [Tooltip("The distance in meters from the camera for the Tagalong to seek when updating its position.")]
         public float TagalongDistance = 2.0f;
@@ -43,6 +47,11 @@ namespace HoloToolkit.Unity
         protected const int frustumBottom = 2;
         protected const int frustumTop = 3;
 
+        public static void ToggleTagAlong()
+        {
+            isTagAlong = !isTagAlong;
+        }
+
         protected virtual void Start()
         {
             // Make sure the Tagalong object has a BoxCollider.
@@ -57,30 +66,34 @@ namespace HoloToolkit.Unity
 
         protected virtual void Update()
         {
-            Camera mainCamera = CameraCache.Main;
-            // Retrieve the frustum planes from the camera.
-            frustumPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
+            if (isTagAlong)
+            {
+                Camera mainCamera = CameraCache.Main;
+                // Retrieve the frustum planes from the camera.
+                frustumPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
 
-            // Determine if the Tagalong needs to move based on whether its
-            // BoxCollider is in or out of the camera's view frustum.
-            Vector3 tagalongTargetPosition;
-            if (CalculateTagalongTargetPosition(transform.position, out tagalongTargetPosition))
-            {
-                // Derived classes will use the same Interpolator and may have
-                // adjusted its PositionUpdateSpeed for some other purpose.
-                // Restore the value we care about and tell the Interpolator
-                // to move the Tagalong to its new target position.
-                interpolator.PositionPerSecond = PositionUpdateSpeed;
-                interpolator.SetTargetPosition(tagalongTargetPosition);
+                // Determine if the Tagalong needs to move based on whether its
+                // BoxCollider is in or out of the camera's view frustum.
+                Vector3 tagalongTargetPosition;
+                if (CalculateTagalongTargetPosition(transform.position, out tagalongTargetPosition))
+                {
+                    // Derived classes will use the same Interpolator and may have
+                    // adjusted its PositionUpdateSpeed for some other purpose.
+                    // Restore the value we care about and tell the Interpolator
+                    // to move the Tagalong to its new target position.
+                    interpolator.PositionPerSecond = PositionUpdateSpeed;
+                    interpolator.SetTargetPosition(tagalongTargetPosition);
+                }
+                else if (!interpolator.Running && EnforceDistance)
+                {
+                    // If the Tagalong is inside the camera's view frustum, and it is
+                    // supposed to stay a fixed distance from the camera, force the
+                    // tagalong to that location (without using the Interpolator).
+                    Ray ray = new Ray(mainCamera.transform.position, transform.position - mainCamera.transform.position);
+                    transform.position = ray.GetPoint(TagalongDistance);
+                }
             }
-            else if (!interpolator.Running && EnforceDistance)
-            {
-                // If the Tagalong is inside the camera's view frustum, and it is
-                // supposed to stay a fixed distance from the camera, force the
-                // tagalong to that location (without using the Interpolator).
-                Ray ray = new Ray(mainCamera.transform.position, transform.position - mainCamera.transform.position);
-                transform.position = ray.GetPoint(TagalongDistance);
-            }
+
         }
 
         /// <summary>

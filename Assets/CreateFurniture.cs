@@ -10,22 +10,13 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
 
     //Reference to Prefab
     [SerializeField]
-    public GameObject FurnitureOne;
+    public GameObject Furniture;
 
-    [SerializeField]
-    public GameObject FurnitureTwo;
-
-    [SerializeField]
-    public GameObject FurnitureThree;
-
-
-
-    public void InstantiateFurnitureOne(Vector3 position)
+    public void InstantiateFurniture(Vector3 position)
     {
-
-        if (FurnitureOne != null)
+        if (Furniture != null)
         {
-            Instantiate(FurnitureOne, position, Quaternion.identity);
+            Instantiate(Furniture, position, Quaternion.identity);
         }
     }
 
@@ -64,11 +55,14 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
         List<GameObject> floorList = GeneratePlanes.floorPlanes;
         GameObject floor = GetFloorPlaneStandingOn(floorList);
 
+
+        //Instantiate Furniture position infront of player
         Vector3 headPosition = Camera.main.transform.position;
         headPosition = Camera.main.transform.position + Camera.main.transform.forward * distance;
         headPosition.y = floor.transform.position.y ;
 
-        InstantiateFurnitureOne(headPosition);
+        
+        InstantiateFurniture(headPosition);
 
     }
 

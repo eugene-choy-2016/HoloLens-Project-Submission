@@ -111,5 +111,10 @@ public class MainMenuButtonScript : MonoBehaviour, IFocusable, IInputClickHandle
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("SinglePlayerScene");
         }
+
+        if (eventData.RecognizedText == "sample")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BasicGaze");
+        }
     }
 }

@@ -5,19 +5,19 @@ using UnityEngine;
 
 
 //Script for the Bed Prefab
-public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler {
+public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler, IManipulationHandler
+{
 
-    [SerializeField]
-    public GameObject MoveButton;
+
+    public GameObject moveButton;
 
     [SerializeField]
     public Material mouseOverGlowEffect;
 
     private Transform currentObjPosition;
     private MeshRenderer[] childRenderer;
+    private Vector3 originalPosition;
 
-
-    private GameObject instantiatedScaleButton;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +35,9 @@ public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler {
         //If player is more than 5meters away assume that they do not need the button and hide it
         if (dist >= 5.0f)
         {
-            instantiatedScaleButton.SetActive(false);
+            moveButton.SetActive(true);
+            MoveModeButtonScript.ResetMoveButton();
+            MoveModeButtonScript.isMoveToggled = false; //Hide button when too far and deactivate moving mode   
             OnFocusExit();
         }
 
@@ -47,9 +49,11 @@ public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler {
         Vector3 centerPosition = currentObjPosition.localPosition;
 
         //Spawn a Scale Button and set it to fale
+
         centerPosition.y += 1.0f;
-        instantiatedScaleButton = Instantiate(MoveButton, centerPosition, Quaternion.identity);
-        instantiatedScaleButton.SetActive(false);
+
+        moveButton = GameObject.Find("MoveMode"); 
+        moveButton.SetActive(false);
 
         childRenderer = GetComponentsInChildren<MeshRenderer>();
         
@@ -57,33 +61,83 @@ public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler {
 
     public void OnFocusEnter()
     {
-
-        foreach(MeshRenderer mr in childRenderer)
+        if (SelectionModeScript.isSelectionMode)
         {
-            Material currentMaterial = mr.material;
-            List<Material> materials = new List<Material>();
+            foreach (MeshRenderer mr in childRenderer)
+            {
+                Material currentMaterial = mr.material;
+                List<Material> materials = new List<Material>();
 
-            materials.Add(currentMaterial);
-            materials.Add(mouseOverGlowEffect);
+                materials.Add(currentMaterial);
+                materials.Add(mouseOverGlowEffect);
 
-            mr.materials = materials.ToArray();
+                mr.materials = materials.ToArray();
+            }
         }
+
 
     }
 
     public void OnFocusExit()
     {
-        foreach (MeshRenderer mr in childRenderer)
+        if (SelectionModeScript.isSelectionMode)
         {
-            List<Material> materials = new List<Material>();
-            materials.Add(mr.materials[0]);
-            mr.materials = materials.ToArray();
+            foreach (MeshRenderer mr in childRenderer)
+            {
+                List<Material> materials = new List<Material>();
+                materials.Add(mr.materials[0]);
+                mr.materials = materials.ToArray();
+            }
         }
 
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        instantiatedScaleButton.SetActive(true);
+        float distance = 3.0f;
+
+        Vector3 centerPosition = currentObjPosition.localPosition;
+        //Spawn a Scale Button and set it to fale
+        centerPosition.y += 1.0f;
+
+        Vector3 headPosition = Camera.main.transform.position + Camera.main.transform.forward * distance;
+        headPosition.y = centerPosition.y;
+        moveButton.transform.position = headPosition;
+
+        moveButton.SetActive(true);
+
+
+    }
+
+    public void OnManipulationStarted(ManipulationEventData eventData)
+    {
+        Debug.Log("Manipulation Detected");
+        InputManager.Instance.AddGlobalListener(gameObject);
+        if (MoveModeButtonScript.isMoveToggled)
+        {
+            originalPosition = transform.position;
+        }
+    }
+
+    public void OnManipulationUpdated(ManipulationEventData eventData)
+    {
+        if (MoveModeButtonScript.isMoveToggled)
+        {
+            //Lock the Y coordinate coz idw make bed to move up
+            Vector3 transformed = originalPosition + eventData.CumulativeDelta;
+            transformed.y = originalPosition.y;
+            transform.position = transformed;
+            
+        }
+    }
+
+    public void OnManipulationCompleted(ManipulationEventData eventData)
+    {
+        InputManager.Instance.RemoveGlobalListener(gameObject);
+    }
+
+    public void OnManipulationCanceled(ManipulationEventData eventData)
+    {
+        OnManipulationCompleted(eventData);
     }
 }
