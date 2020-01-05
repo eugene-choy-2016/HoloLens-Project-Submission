@@ -10,6 +10,10 @@ public class AddFurniture : MonoBehaviour, IFocusable, IInputClickHandler, ISpee
 
     [SerializeField]
     private GameObject bedButton;
+
+    [SerializeField]
+    private GameObject vaseButton;
+
     private GameObject text;
 
     private string originalText;
@@ -25,6 +29,11 @@ public class AddFurniture : MonoBehaviour, IFocusable, IInputClickHandler, ISpee
         if(bedButton != null)
         {
             bedButton.SetActive(false);
+        }
+
+        if(vaseButton != null)
+        {
+            vaseButton.SetActive(false);
         }
         
         
@@ -50,6 +59,7 @@ public class AddFurniture : MonoBehaviour, IFocusable, IInputClickHandler, ISpee
     {
         isDrawerOpen = !isDrawerOpen;
         bedButton.SetActive(isDrawerOpen);
+        vaseButton.SetActive(isDrawerOpen);
         
         if (isDrawerOpen)
         {

@@ -51,7 +51,7 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        float distance = 1.0f;
+        float distance = 2.0f;
         List<GameObject> floorList = GeneratePlanes.floorPlanes;
         GameObject floor = GetFloorPlaneStandingOn(floorList);
 

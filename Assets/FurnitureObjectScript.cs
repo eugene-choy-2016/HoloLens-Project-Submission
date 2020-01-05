@@ -5,11 +5,8 @@ using UnityEngine;
 
 
 //Script for the Bed Prefab
-public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler, IManipulationHandler
+public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandler, IManipulationHandler
 {
-
-
-    public GameObject moveButton;
 
     [SerializeField]
     public Material mouseOverGlowEffect;
@@ -17,10 +14,10 @@ public class BedObjectScript : MonoBehaviour,IFocusable, IInputClickHandler, IMa
     private Transform currentObjPosition;
     private MeshRenderer[] childRenderer;
     private Vector3 originalPosition;
+    private GameObject moveButton;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
