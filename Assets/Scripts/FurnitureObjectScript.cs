@@ -14,6 +14,10 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
     private Transform currentObjPosition;
     private MeshRenderer[] childRenderer;
     private Vector3 originalPosition;
+
+
+    //GameObjects
+    private GameObject manipulationPanel;
     private GameObject moveButton;
 
     // Use this for initialization
@@ -32,28 +36,28 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
         //If player is more than 5meters away assume that they do not need the button and hide it
         if (dist >= 5.0f)
         {
-            moveButton.SetActive(true);
-            MoveModeButtonScript.ResetMoveButton();
-            MoveModeButtonScript.isMoveToggled = false; //Hide button when too far and deactivate moving mode   
+            manipulationPanel.SetActive(true);
             OnFocusExit();
+            MoveModeButtonScript.ResetMoveButton();
+            MoveModeButtonScript.ToggleManipulationMode(); //Hide button when too far and deactivate moving mode   
+
+
+            //Hide Manipulation Panel when too far away
+            manipulationPanel.SetActive(false);
         }
 
     }
 
     private void Awake()
     {
-        currentObjPosition = GetComponent<Transform>();
-        Vector3 centerPosition = currentObjPosition.localPosition;
+        manipulationPanel = GameObject.Find("ManipulationPanel");
+        moveButton = manipulationPanel.transform.Find("MoveMode").gameObject;
 
-        //Spawn a Scale Button and set it to fale
+        manipulationPanel.SetActive(false);
 
-        centerPosition.y += 1.0f;
-
-        moveButton = GameObject.Find("MoveMode"); 
-        moveButton.SetActive(false);
-
+        //Renderer of the Furniture
         childRenderer = GetComponentsInChildren<MeshRenderer>();
-        
+
     }
 
     public void OnFocusEnter()
@@ -99,9 +103,9 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
 
         Vector3 headPosition = Camera.main.transform.position + Camera.main.transform.forward * distance;
         headPosition.y = centerPosition.y;
-        moveButton.transform.position = headPosition;
+        manipulationPanel.transform.position = headPosition;
 
-        moveButton.SetActive(true);
+        manipulationPanel.SetActive(true);
 
 
     }
@@ -110,7 +114,7 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
     {
         Debug.Log("Manipulation Detected");
         InputManager.Instance.AddGlobalListener(gameObject);
-        if (MoveModeButtonScript.isMoveToggled)
+        if (MoveModeButtonScript.isMoveActivated)
         {
             originalPosition = transform.position;
         }
@@ -118,7 +122,7 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
 
     public void OnManipulationUpdated(ManipulationEventData eventData)
     {
-        if (MoveModeButtonScript.isMoveToggled)
+        if (MoveModeButtonScript.isMoveActivated)
         {
             //Lock the Y coordinate coz idw make bed to move up
             Vector3 transformed = originalPosition + eventData.CumulativeDelta;

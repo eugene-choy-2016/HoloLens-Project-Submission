@@ -68,6 +68,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4151860140242920}
+  - component: {fileID: 114129236080171840}
+  - component: {fileID: 65857053978225690}
   m_Layer: 0
   m_Name: Vase_1_Prefab
   m_TagString: Untagged
@@ -241,3 +243,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062413658345992}
   m_Mesh: {fileID: 4300000, guid: bd09b17863ebbf74c82083bf72572ff1, type: 3}
+--- !u!65 &65857053978225690
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281072453517432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &114129236080171840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281072453517432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6565c81d2479e4e96a4cd8456135a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseOverGlowEffect: {fileID: 2100000, guid: d0bb0acdf9b8c1846ab296d9cab01f75, type: 2}
