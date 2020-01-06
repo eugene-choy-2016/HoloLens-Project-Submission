@@ -114,21 +114,29 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
     {
         Debug.Log("Manipulation Detected");
         InputManager.Instance.AddGlobalListener(gameObject);
-        if (MoveModeButtonScript.isMoveActivated)
+        if (MoveModeButtonScript.isMoveActivated || ScaleModeButtonScript.isScaleActivated)
         {
             originalPosition = transform.position;
         }
+
     }
 
     public void OnManipulationUpdated(ManipulationEventData eventData)
     {
+
+        float scaleProportionSpeed = 0.01f;
+
         if (MoveModeButtonScript.isMoveActivated)
         {
             //Lock the Y coordinate coz idw make bed to move up
             Vector3 transformed = originalPosition + eventData.CumulativeDelta;
             transformed.y = originalPosition.y;
-            transform.position = transformed;
-            
+            transform.position = transformed; 
+        } else if (ScaleModeButtonScript.isScaleActivated)
+        {
+            //Get the 
+            float scaleFactor = eventData.CumulativeDelta.y * scaleProportionSpeed;
+            transform.localScale = new Vector3(transform.localScale.x + scaleFactor, transform.localScale.y + scaleFactor, transform.localScale.z + scaleFactor);
         }
     }
 

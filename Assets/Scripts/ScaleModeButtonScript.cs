@@ -19,7 +19,13 @@ public class ScaleModeButtonScript : ManipulationModeButton, IInputClickHandler
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (!isScaleActivated && meshRenderer.materials.Length > 1)
+        {
+            List<Material> materials = new List<Material>();
+            materials.Add(meshRenderer.materials[0]);
+            meshRenderer.materials = materials.ToArray();
+            GameObject.Find(gameObjectName).GetComponentInChildren<TextMesh>().text = deactivatedText;
+        }
 	}
 
     void Awake()
@@ -33,6 +39,11 @@ public class ScaleModeButtonScript : ManipulationModeButton, IInputClickHandler
     public static void ToggleManipulationMode()
     {
         isScaleActivated = !isScaleActivated;
+
+        if (isScaleActivated)
+        {
+            MoveModeButtonScript.isMoveActivated = false;
+        }
     }
 
     public void OnInputClicked(InputClickedEventData eventData)

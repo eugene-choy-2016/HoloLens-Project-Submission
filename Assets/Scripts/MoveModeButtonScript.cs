@@ -15,6 +15,11 @@ public class MoveModeButtonScript : ManipulationModeButton, IInputClickHandler
     public static void ToggleManipulationMode()
     {
         isMoveActivated = !isMoveActivated;
+
+        if (isMoveActivated)
+        {
+            ScaleModeButtonScript.isScaleActivated = false;         
+        }
     }
     
     public void OnInputClicked(InputClickedEventData eventData)
@@ -56,6 +61,7 @@ public class MoveModeButtonScript : ManipulationModeButton, IInputClickHandler
         meshRenderer.material.SetColor("_EmissionColor", Color.white);
         meshRenderer.material.color = initialColor;
 
+
     }
 
     // Use this for initialization
@@ -65,8 +71,14 @@ public class MoveModeButtonScript : ManipulationModeButton, IInputClickHandler
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (!isMoveActivated && meshRenderer.materials.Length > 1)
+        {
+            List<Material> materials = new List<Material>();
+            materials.Add(meshRenderer.materials[0]);
+            meshRenderer.materials = materials.ToArray();
+            GameObject.Find(gameObjectName).GetComponentInChildren<TextMesh>().text = deactivatedText;
+        }
+    }
    
     void Awake()
     {
