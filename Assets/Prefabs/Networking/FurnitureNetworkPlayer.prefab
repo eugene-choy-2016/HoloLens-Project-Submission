@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4168310219247530}
   - component: {fileID: 114536699440075026}
-  - component: {fileID: 114023379970236994}
+  - component: {fileID: 114739748884104608}
   m_Layer: 0
-  m_Name: NetworkPlayer
+  m_Name: FurnitureNetworkPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,19 +114,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413496911242854}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114023379970236994
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1118439000226144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775aaf6034d003b4e95a1cc47da005b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bedPrefab: {fileID: 1832717547708942, guid: b3f36b995fef2994291f7a8a27a50565, type: 2}
-  vasePrefab: {fileID: 1281072453517432, guid: 9a0490a74d4ee924ebd2ea714926f75e, type: 2}
 --- !u!114 &114536699440075026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,24 +128,37 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 134
-    i1: 221
-    i2: 220
+    i0: 36
+    i1: 25
+    i2: 136
     i3: 42
-    i4: 114
-    i5: 22
-    i6: 46
-    i7: 84
-    i8: 105
-    i9: 72
-    i10: 206
-    i11: 15
-    i12: 216
-    i13: 12
-    i14: 38
-    i15: 196
+    i4: 11
+    i5: 250
+    i6: 34
+    i7: 68
+    i8: 43
+    i9: 226
+    i10: 76
+    i11: 110
+    i12: 116
+    i13: 183
+    i14: 79
+    i15: 179
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114739748884104608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1118439000226144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8046aa0d305828d4d81b21efab427233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bedPrefab: {fileID: 1832717547708942, guid: b3f36b995fef2994291f7a8a27a50565, type: 2}
+  vasePrefab: {fileID: 1281072453517432, guid: 9a0490a74d4ee924ebd2ea714926f75e, type: 2}
 --- !u!135 &135052461283522452
 SphereCollider:
   m_ObjectHideFlags: 1

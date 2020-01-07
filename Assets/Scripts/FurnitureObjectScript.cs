@@ -150,6 +150,12 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
     public void OnManipulationCompleted(ManipulationEventData eventData)
     {
         InputManager.Instance.RemoveGlobalListener(gameObject);
+
+        // If we're on the network
+        if (NetworkPlayer.Instance != null)
+        {
+            FurnitureNetworkPlayer.Instance.CmdUpdateFurnitureTransform(gameObject.name,transform.localPosition, transform.localRotation,transform.localScale);
+        }
     }
 
     public void OnManipulationCanceled(ManipulationEventData eventData)

@@ -11,6 +11,8 @@ using UnityEngine.Networking;
 /// </summary>
 public class NetworkPlayer : NetworkBehaviour
 {
+    
+
     /*
      * Statics
      */
@@ -41,13 +43,13 @@ public class NetworkPlayer : NetworkBehaviour
     [SyncVar(hook = "PlayerNameChanged")]
     string PlayerName;
 
-//#pragma warning disable 0414
+    //#pragma warning disable 0414
     /// <summary>
     /// Keeps track of the player's IP address
     /// </summary>
     [SyncVar(hook = "PlayerIpChanged")]
     string PlayerIp;
-//#pragma warning restore 0414
+    //#pragma warning restore 0414
 
 
     // Transform
@@ -84,6 +86,7 @@ public class NetworkPlayer : NetworkBehaviour
         // Get Components
         networkDiscovery = NetworkDiscoveryWithAnchors.Instance;
         anchorManager = UNetAnchorManager.Instance;
+
     }
 
     /// <summary>
@@ -107,7 +110,7 @@ public class NetworkPlayer : NetworkBehaviour
             /************************************************************/
             // Activate the shared collection gameObject
             SharedCollection.Instance.gameObject.SetActive(true);
-           
+
 
             // We are the server
             if (isServer)
@@ -148,7 +151,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         /*
          * Non-local Player Section (AKA this player is from another client)
-         */ 
+         */
         // If we aren't the local player, we just need to make sure that the position of this object is set properly
         // so that we properly render their avatar in our world.
         if (!isLocalPlayer)
@@ -166,7 +169,7 @@ public class NetworkPlayer : NetworkBehaviour
 
         /*
          * Local Player Section (AKA this player is the player we created from this client)
-         */ 
+         */
 
         // if our anchor established state has changed, update everyone
         if (AnchorEstablished != anchorManager.AnchorEstablished)
@@ -355,7 +358,7 @@ public class NetworkPlayer : NetworkBehaviour
         /************************************************************/
         // Call "RpcShowModel()"
         RpcShowModel(hololens, car, engine);
-        
+
     }
 
     /// <summary>
@@ -371,7 +374,7 @@ public class NetworkPlayer : NetworkBehaviour
         /************************************************************/
         // Call ModelLibrary's instance's "ShowModel()"
         ModelLibrary.Instance.ShowModel(hololens, car, engine);
-        
+
     }
 
     // Introduction to Networked Experiences: Exercise 6.1.a
@@ -382,13 +385,13 @@ public class NetworkPlayer : NetworkBehaviour
     {
         RpcUpdateModelTransform(modelLocalPosition, modelLocalRotation);
     }
-    
 
-        // Introduction to Networked Experiences: Exercise 6.1.c
-        /************************************************************/
-        // Call "RpcUpdateModelTransform()"
-        
-    
+
+    // Introduction to Networked Experiences: Exercise 6.1.c
+    /************************************************************/
+    // Call "RpcUpdateModelTransform()"
+
+
 
     // Introduction to Networked Experiences: Exercise 6.1.b
     /************************************************************/
@@ -401,16 +404,16 @@ public class NetworkPlayer : NetworkBehaviour
 
     }
 
-        // Introduction to Networked Experiences: Exercise 6.1.d.i
-        /************************************************************/
-        // Set the “ModelLibrary” instance’s local position to “modelLocalPosition”
-        
+    // Introduction to Networked Experiences: Exercise 6.1.d.i
+    /************************************************************/
+    // Set the “ModelLibrary” instance’s local position to “modelLocalPosition”
 
-        // Introduction to Networked Experiences: Exercise 6.1.d.ii
-        /************************************************************/
-        // Set the “ModelLibrary” instance’s local rotation to “modelLocalRotation”
-        
-    
+
+    // Introduction to Networked Experiences: Exercise 6.1.d.ii
+    /************************************************************/
+    // Set the “ModelLibrary” instance’s local rotation to “modelLocalRotation”
+
+
 
     /// <summary>
     /// Command function called by the client and executed on the server to request for a sync of all the variables

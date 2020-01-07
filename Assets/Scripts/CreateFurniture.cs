@@ -25,14 +25,19 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
         {
             if (!isMulti)
             {
-                Instantiate(Furniture, position, Quaternion.identity);
+                Instantiate(Furniture, position, Quaternion.identity); 
             }
             else
             {
-                if(parentObject != null)
+                if(parentObject != null && NetworkPlayer.Instance != null)
                 {
                     GameObject created = Instantiate(Furniture, position, Quaternion.identity);
                     created.transform.SetParent(parentObject.transform);
+
+                    Debug.Log("Instantiating Object in the Network");
+                    Debug.Log("Name of GO");
+                    Debug.Log(Furniture.name);
+                    FurnitureNetworkPlayer.Instance.CmdCreateFurniture(Furniture.name, position, Quaternion.identity);
                 }
                 else
                 {
