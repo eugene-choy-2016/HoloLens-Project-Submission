@@ -34,7 +34,9 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
                     Debug.Log("Instantiating Object in the Network");
                     Debug.Log("Name of GO");
                     Debug.Log(Furniture.name);
-                    FurnitureNetworkPlayer.Instance.CmdCreateFurniture(Furniture.name, position, Quaternion.identity);
+
+                    //Create the Object with a unique name
+                    FurnitureNetworkPlayer.Instance.CmdCreateFurniture(Furniture.name + Time.time, position, Quaternion.identity);
                 }
                 else
                 {

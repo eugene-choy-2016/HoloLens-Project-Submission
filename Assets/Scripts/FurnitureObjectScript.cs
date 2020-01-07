@@ -152,7 +152,7 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
         InputManager.Instance.RemoveGlobalListener(gameObject);
 
         // If we're on the network
-        if (NetworkPlayer.Instance != null)
+        if (FurnitureNetworkPlayer.Instance != null)
         {
             FurnitureNetworkPlayer.Instance.CmdUpdateFurnitureTransform(gameObject.name,transform.localPosition, transform.localRotation,transform.localScale);
         }

@@ -265,7 +265,7 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     {
         Debug.Log("Get Furniture Name");
         Debug.Log(objectName);
-        RpcCreateFurniture(objectName, modelLocalPosition, modelLocalRotation,false);
+        RpcCreateFurniture(objectName, modelLocalPosition, modelLocalRotation);
     }
 
     // For Instance Updates
@@ -276,31 +276,25 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcCreateFurniture(string objectName, Vector3 modelLocalPosition, Quaternion modelLocalRotation, bool isSync)
+    public void RpcCreateFurniture(string objectName, Vector3 modelLocalPosition, Quaternion modelLocalRotation)
     {
         Debug.Log("RPC Called");
         Debug.Log(objectName);
 
-        if (objectName.Equals("Queen_Bed_FitToRoom"))
+        if (objectName.Contains("Queen_Bed_FitToRoom"))
         {
             GameObject go = Instantiate(bedPrefab, modelLocalPosition, modelLocalRotation);
-            
             go.transform.SetParent(this.transform.parent.transform);
-            if (!isSync) //if is not syncing give it a unique name
-            {
-                go.name = go.name + "_" + Time.time;
-            }
+            go.name = objectName;
             
 
         }
-        else if (objectName.Equals("Vase_1_Prefab"))
+        else if (objectName.Contains("Vase_1_Prefab"))
         {
             GameObject go = Instantiate(vasePrefab, modelLocalPosition, modelLocalRotation);       
             go.transform.SetParent(this.transform.parent.transform);
-            if (!isSync) //if is not syncing give it a unique name
-            {
-                go.name = go.name + "_" + Time.time;
-            }
+            go.name = objectName;
+
         }
     }
 
@@ -308,9 +302,17 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     public void RpcUpdateFurnitureTransform(string gameObjectName,Vector3 modelLocalPosition, Quaternion modelLocalRotation, Vector3 localScale)
     {
         Debug.Log(gameObjectName + " manipulated");
-        //go.transform.localPosition = modelLocalPosition;
-        //go.transform.localRotation = modelLocalRotation;
-        //go.transform.localScale = localScale;
+        GameObject furnitureObj = GameObject.Find(gameObjectName);
+
+        if(furnitureObj != null)
+        {
+            Debug.Log(gameObjectName + " found and ready to transform");
+        }
+
+        //change position too
+        furnitureObj.transform.localPosition = modelLocalPosition;
+        furnitureObj.transform.localRotation = modelLocalRotation;
+        furnitureObj.transform.localScale = localScale;
     }
 
     //Request sync ask for all the objects and respawn
@@ -323,14 +325,8 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
         for (int i = 0; i < childCount; i++)
         {
             GameObject child = parent.GetChild(i).gameObject;
-            if (child.name.Contains("Queen_Bed_FitToRoom"))
-            {
-                RpcCreateFurniture("Queen_Bed_FitToRoom", child.transform.localPosition, child.transform.localRotation, true);
-            }else if (child.name.Contains("Vase_1_Prefab"))
-            {
-                RpcCreateFurniture("Vase_1_Prefab", child.transform.localPosition, child.transform.localRotation, true);
-            }
-
+            RpcCreateFurniture(child.name, child.transform.localPosition, child.transform.localRotation);
+            
         }
     }
 
