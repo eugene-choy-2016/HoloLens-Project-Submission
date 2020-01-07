@@ -103,6 +103,11 @@ public class MainMenuButtonScript : MonoBehaviour, IFocusable, IInputClickHandle
             UnityEngine.SceneManagement.SceneManager.LoadScene("BasicGaze");
         }
 
+        if (isMultiPlayer)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MultiPlayerScene");
+        }
+
     }
 
     public void OnSpeechKeywordRecognized(SpeechEventData eventData)

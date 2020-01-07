@@ -12,11 +12,35 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
     [SerializeField]
     public GameObject Furniture;
 
+    [SerializeField]
+    public bool isMulti = false;
+
+    [SerializeField]
+    public GameObject parentObject;
+
     public void InstantiateFurniture(Vector3 position)
     {
+
         if (Furniture != null)
         {
-            Instantiate(Furniture, position, Quaternion.identity);
+            if (!isMulti)
+            {
+                Instantiate(Furniture, position, Quaternion.identity);
+            }
+            else
+            {
+                if(parentObject != null)
+                {
+                    GameObject created = Instantiate(Furniture, position, Quaternion.identity);
+                    created.transform.SetParent(parentObject.transform);
+                }
+                else
+                {
+                    Debug.LogError("Parent cannot be null if Multiplayer mode is set to true in CreateFurniture.cs");
+                }
+
+            }
+            
         }
     }
 

@@ -1,0 +1,2 @@
+C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\MRDC_EugeneChoy.csproj;x86

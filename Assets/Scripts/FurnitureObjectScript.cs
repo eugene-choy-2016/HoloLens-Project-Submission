@@ -121,22 +121,29 @@ public class FurnitureObjectScript : MonoBehaviour,IFocusable, IInputClickHandle
 
     }
 
+    //Handles Move/Scale/Rotation
     public void OnManipulationUpdated(ManipulationEventData eventData)
     {
 
         float scaleProportionSpeed = 0.01f;
+        float rotationSensitivity = 100.0f;
 
         if (MoveModeButtonScript.isMoveActivated)
         {
             //Lock the Y coordinate coz idw make bed to move up
             Vector3 transformed = originalPosition + eventData.CumulativeDelta;
             transformed.y = originalPosition.y;
-            transform.position = transformed; 
-        } else if (ScaleModeButtonScript.isScaleActivated)
+            transform.position = transformed;
+        }
+        else if (ScaleModeButtonScript.isScaleActivated)
         {
             //Get the 
             float scaleFactor = eventData.CumulativeDelta.y * scaleProportionSpeed;
             transform.localScale = new Vector3(transform.localScale.x + scaleFactor, transform.localScale.y + scaleFactor, transform.localScale.z + scaleFactor);
+        }
+        else if (RotationModeButtonScript.isRotationActivated)
+        {
+            transform.Rotate(0.0f, -Camera.main.transform.InverseTransformVector(eventData.CumulativeDelta).x * rotationSensitivity * Time.deltaTime, 0.0f);
         }
     }
 

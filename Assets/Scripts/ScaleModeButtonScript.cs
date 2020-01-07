@@ -43,6 +43,7 @@ public class ScaleModeButtonScript : ManipulationModeButton, IInputClickHandler
         if (isScaleActivated)
         {
             MoveModeButtonScript.isMoveActivated = false;
+            RotationModeButtonScript.isRotationActivated = false;
         }
     }
 
