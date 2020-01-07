@@ -5,10 +5,6 @@ using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine;
 using UnityEngine.Networking;
 
-/// <summary>
-/// Script that handles the responsibilities of the "Player Object" in the network.
-/// Based on a cleaned up version of MRTK's PlayerController.cs
-/// </summary>
 public class FurnitureNetworkPlayer : NetworkBehaviour
 {
 
@@ -19,7 +15,6 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     public GameObject vasePrefab;
 
 
-    private GameObject sharedObject;
 
     /*
      * Statics
@@ -94,7 +89,7 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
         // Get Components
         networkDiscovery = NetworkDiscoveryWithAnchors.Instance;
         anchorManager = UNetAnchorManager.Instance;
-        sharedObject = GameObject.Find("SharedGameObjects");
+        
     }
 
     /// <summary>
@@ -109,7 +104,42 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
             return;
         }
 
-        
+        // This instance of the NetworkPlayer belongs to us
+        if (isLocalPlayer)
+        {
+            InitializeLocalPlayer();
+
+            // Introduction to Networked Experiences: Exercise 4.5
+            /************************************************************/
+            // Activate the shared collection gameObject
+            SharedCollection.Instance.gameObject.SetActive(true);
+
+            // We are the server
+            if (isServer)
+            {
+               
+            }
+            else
+            {
+                CmdRequestSync();
+                SpatialMappingManager.Instance.DrawVisualMeshes = false;
+            }
+        }
+        else
+        {
+            Debug.Log("remote player");
+            // Set to red so that we can differentiate other players from this client's own player
+            GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+
+            // Initialize Anchor Establishment variables
+            AnchorEstablishedChanged(AnchorEstablished);
+        }
+
+        // We will be using the Shared Collection object as the world anchor
+        sharedWorldAnchorTransform = SharedCollection.Instance.gameObject.transform;
+
+        // Parent ourselves to it
+        transform.SetParent(sharedWorldAnchorTransform);
     }
 
 
@@ -180,6 +210,7 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
             CmdSetPlayerName(networkDiscovery.broadcastData);
             CmdSetPlayerIp(networkDiscovery.LocalIp);
         }
+
     }
     #endregion
 
@@ -234,7 +265,7 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     {
         Debug.Log("Get Furniture Name");
         Debug.Log(objectName);
-        RpcCreateFurniture(objectName, modelLocalPosition, modelLocalRotation);
+        RpcCreateFurniture(objectName, modelLocalPosition, modelLocalRotation,false);
     }
 
     // For Instance Updates
@@ -245,7 +276,7 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcCreateFurniture(string objectName, Vector3 modelLocalPosition, Quaternion modelLocalRotation)
+    public void RpcCreateFurniture(string objectName, Vector3 modelLocalPosition, Quaternion modelLocalRotation, bool isSync)
     {
         Debug.Log("RPC Called");
         Debug.Log(objectName);
@@ -253,13 +284,23 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
         if (objectName.Equals("Queen_Bed_FitToRoom"))
         {
             GameObject go = Instantiate(bedPrefab, modelLocalPosition, modelLocalRotation);
-            go.name = name + Time.time;
-            go.transform.SetParent(sharedObject.transform);
+            
+            go.transform.SetParent(this.transform.parent.transform);
+            if (!isSync) //if is not syncing give it a unique name
+            {
+                go.name = go.name + "_" + Time.time;
+            }
+            
+
         }
         else if (objectName.Equals("Vase_1_Prefab"))
         {
-            GameObject go = Instantiate(vasePrefab, modelLocalPosition, modelLocalRotation);
-            go.transform.SetParent(sharedObject.transform);
+            GameObject go = Instantiate(vasePrefab, modelLocalPosition, modelLocalRotation);       
+            go.transform.SetParent(this.transform.parent.transform);
+            if (!isSync) //if is not syncing give it a unique name
+            {
+                go.name = go.name + "_" + Time.time;
+            }
         }
     }
 
@@ -270,6 +311,27 @@ public class FurnitureNetworkPlayer : NetworkBehaviour
         //go.transform.localPosition = modelLocalPosition;
         //go.transform.localRotation = modelLocalRotation;
         //go.transform.localScale = localScale;
+    }
+
+    //Request sync ask for all the objects and respawn
+    [Command]
+    public void CmdRequestSync()
+    {
+        Transform parent = this.transform.parent;
+        int childCount = this.transform.parent.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            GameObject child = parent.GetChild(i).gameObject;
+            if (child.name.Contains("Queen_Bed_FitToRoom"))
+            {
+                RpcCreateFurniture("Queen_Bed_FitToRoom", child.transform.localPosition, child.transform.localRotation, true);
+            }else if (child.name.Contains("Vase_1_Prefab"))
+            {
+                RpcCreateFurniture("Vase_1_Prefab", child.transform.localPosition, child.transform.localRotation, true);
+            }
+
+        }
     }
 
 

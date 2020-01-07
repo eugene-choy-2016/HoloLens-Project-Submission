@@ -29,11 +29,8 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
             }
             else
             {
-                if(parentObject != null && NetworkPlayer.Instance != null)
+                if(parentObject != null && FurnitureNetworkPlayer.Instance != null)
                 {
-                    GameObject created = Instantiate(Furniture, position, Quaternion.identity);
-                    created.transform.SetParent(parentObject.transform);
-
                     Debug.Log("Instantiating Object in the Network");
                     Debug.Log("Name of GO");
                     Debug.Log(Furniture.name);
@@ -41,7 +38,16 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
                 }
                 else
                 {
-                    Debug.LogError("Parent cannot be null if Multiplayer mode is set to true in CreateFurniture.cs");
+                    if (FurnitureNetworkPlayer.Instance == null)
+                    {
+                        Debug.LogError("FurnitureNetworkPlayer is null");
+                    }
+
+                    else
+                    {
+                        Debug.LogError("Parent cannot be null if Multiplayer mode is set to true in CreateFurniture.cs");
+                    }
+                    
                 }
 
             }
