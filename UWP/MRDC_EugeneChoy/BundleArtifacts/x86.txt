@@ -1,2 +1,2 @@
-MainPackage=C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\bin\x86\Release\MRDC_EugeneChoy_1.0.1.0_x86.appx
-SymbolPackage=C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\AppPackages\MRDC_EugeneChoy_1.0.1.0_Test\MRDC_EugeneChoy_1.0.1.0_x86.appxsym
+MainPackage=C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\bin\x86\Release\MRDC_EugeneChoy_1.0.3.0_x86.appx
+SymbolPackage=C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\AppPackages\MRDC_EugeneChoy_1.0.3.0_Test\MRDC_EugeneChoy_1.0.3.0_x86.appxsym

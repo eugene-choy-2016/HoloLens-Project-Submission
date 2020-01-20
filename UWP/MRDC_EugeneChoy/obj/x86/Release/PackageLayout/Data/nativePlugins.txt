@@ -2,6 +2,4 @@ PlaneFinding.dll
 MicStreamSelector.dll
 GpuTiming.dll
 SharingClient.dll
-VuforiaWrapper.dll
 SpatialUnderstanding.dll
-Vuforia.dll

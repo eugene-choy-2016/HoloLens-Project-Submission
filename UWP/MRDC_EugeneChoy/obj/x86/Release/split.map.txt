@@ -5,8 +5,6 @@
 [Files]
 "C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\split.pri"			"resources.pri"
 "C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\WinMetadata\Windows.winmd"			"WinMetadata\Windows.winmd"
-"C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\VuforiaWrapper.dll"			"VuforiaWrapper.dll"
-"C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\Vuforia.dll"			"Vuforia.dll"
 "C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\SpatialUnderstanding.pdb"			"SpatialUnderstanding.pdb"
 "C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\SpatialUnderstanding.dll"			"SpatialUnderstanding.dll"
 "C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\obj\x86\Release\PackageLayout\SharingClient.pdb"			"SharingClient.pdb"

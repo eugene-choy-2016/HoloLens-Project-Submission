@@ -92,14 +92,15 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
         List<GameObject> floorList = GeneratePlanes.floorPlanes;
         GameObject floor = GetFloorPlaneStandingOn(floorList);
 
+        if(floor!= null)
+        {
+            //Instantiate Furniture position infront of player
+            Vector3 headPosition = Camera.main.transform.position;
+            headPosition = Camera.main.transform.position + Camera.main.transform.forward * distance;
+            headPosition.y = floor.transform.position.y;
 
-        //Instantiate Furniture position infront of player
-        Vector3 headPosition = Camera.main.transform.position;
-        headPosition = Camera.main.transform.position + Camera.main.transform.forward * distance;
-        headPosition.y = floor.transform.position.y ;
-
-        
-        InstantiateFurniture(headPosition);
+            InstantiateFurniture(headPosition);
+        }
 
     }
 
@@ -109,7 +110,7 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
     }
 
     //Incase there is more than one floor element
-    public GameObject GetFloorPlaneStandingOn(List<GameObject> floorList)
+    public static GameObject GetFloorPlaneStandingOn(List<GameObject> floorList)
     {
         Vector3 headPosition = Camera.main.transform.position;
         GameObject standingOn = null;
@@ -132,4 +133,4 @@ public class CreateFurniture : MonoBehaviour, IFocusable, IInputClickHandler, IS
 
         return standingOn;
     }
-}
+    }

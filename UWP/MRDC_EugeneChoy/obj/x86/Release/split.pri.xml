@@ -62,16 +62,6 @@
 					<Value>SpatialUnderstanding.pdb</Value>
 				</Candidate>
 			</NamedResource>
-			<NamedResource name="Vuforia.dll" uri="ms-resource://HoloLensE/Files/Vuforia.dll">
-				<Candidate type="Path">
-					<Value>Vuforia.dll</Value>
-				</Candidate>
-			</NamedResource>
-			<NamedResource name="VuforiaWrapper.dll" uri="ms-resource://HoloLensE/Files/VuforiaWrapper.dll">
-				<Candidate type="Path">
-					<Value>VuforiaWrapper.dll</Value>
-				</Candidate>
-			</NamedResource>
 			<ResourceMapSubtree name="Assets">
 				<NamedResource name="SplashScreen.png" uri="ms-resource://HoloLensE/Files/Assets/SplashScreen.png">
 					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">

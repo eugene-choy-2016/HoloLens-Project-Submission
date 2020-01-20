@@ -1,1 +1,1 @@
-C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\AppPackages\MRDC_EugeneChoy_1.0.1.0_Test\MRDC_EugeneChoy_1.0.1.0_x86.appxbundle
+C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\AppPackages\MRDC_EugeneChoy_1.0.3.0_Test\MRDC_EugeneChoy_1.0.3.0_x86.appxbundle

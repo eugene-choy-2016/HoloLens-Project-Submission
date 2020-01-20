@@ -2,3 +2,5 @@ Library
 *.csproj
 *.sln
 .vs
+UWP
+.zip

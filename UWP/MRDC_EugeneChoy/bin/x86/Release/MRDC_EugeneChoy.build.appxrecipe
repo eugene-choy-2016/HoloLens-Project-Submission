@@ -403,21 +403,6 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\ModelLibrary.xml">
-      <PackagePath>Data\StreamingAssets\Vuforia\ModelLibrary.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_Images.xml">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_Images.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.xml">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_Object_OT.xml">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_Object_OT.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_VuMark.xml">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_VuMark.xml</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\PlaneFinding.dll">
       <PackagePath>PlaneFinding.dll</PackagePath>
     </AppxPackagedFile>
@@ -430,14 +415,8 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\SharingClient.dll">
       <PackagePath>SharingClient.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\VuforiaWrapper.dll">
-      <PackagePath>VuforiaWrapper.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\SpatialUnderstanding.dll">
       <PackagePath>SpatialUnderstanding.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Vuforia.dll">
-      <PackagePath>Vuforia.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
@@ -511,29 +490,11 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\nativePlugins.txt">
       <PackagePath>Data\nativePlugins.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\ModelLibrary.dat">
-      <PackagePath>Data\StreamingAssets\Vuforia\ModelLibrary.dat</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_Images.dat">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_Images.dat</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.dat">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.dat</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_Object_OT.dat">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_Object_OT.dat</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Data\StreamingAssets\Vuforia\VuforiaMars_VuMark.dat">
-      <PackagePath>Data\StreamingAssets\Vuforia\VuforiaMars_VuMark.dat</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TilemapModule.dll">
-      <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
@@ -541,29 +502,29 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UIModule.dll">
-      <PackagePath>UnityEngine.UIModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TerrainModule.dll">
+      <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TilemapModule.dll">
+      <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.SpriteMaskModule.dll">
-      <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.SharedInternalsModule.dll">
       <PackagePath>UnityEngine.SharedInternalsModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.SpriteShapeModule.dll">
-      <PackagePath>UnityEngine.SpriteShapeModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.ScreenCaptureModule.dll">
+      <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.TerrainModule.dll">
-      <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.SpriteMaskModule.dll">
+      <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.VRModule.dll">
-      <PackagePath>UnityEngine.VRModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.SpriteShapeModule.dll">
+      <PackagePath>UnityEngine.SpriteShapeModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
@@ -571,14 +532,17 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.WebModule.dll">
-      <PackagePath>UnityEngine.WebModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestWWWModule.dll">
+      <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.VRModule.dll">
+      <PackagePath>UnityEngine.VRModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityConnectModule.dll">
-      <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.WebModule.dll">
+      <PackagePath>UnityEngine.WebModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
@@ -586,11 +550,11 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestAudioModule.dll">
-      <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UIModule.dll">
+      <PackagePath>UnityEngine.UIModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestWWWModule.dll">
-      <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityConnectModule.dll">
+      <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
@@ -598,8 +562,8 @@
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.ScreenCaptureModule.dll">
-      <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.UnityWebRequestAudioModule.dll">
+      <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
@@ -684,9 +648,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\Vuforia.UnityExtensions.dll">
-      <PackagePath>Vuforia.UnityExtensions.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eugene.choy.2016\Desktop\HoloLens-Project\UWP\MRDC_EugeneChoy\UnityEngine.StandardEvents.dll">
       <PackagePath>UnityEngine.StandardEvents.dll</PackagePath>
